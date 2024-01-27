@@ -1,26 +1,38 @@
 <template>
     <div class="bg-gradient-to-r from-slate-500 h-full">
-        <h1
-            class="text-3xl font-bold underline justify-center">{{ header }}</h1>
-        <UInput
-            type="text"
-            placeholder="Movie Title"
-            @change="handleInputChange"
-            class="w-1/2 justify-center"
-        />
-        <UButton
-            @click="handleSearch"
-        >
-            Search
-        </UButton>
-        <div
-            class="flex-row justify-center w-3/4">
-            <span v-for="movie in this.movies">
-                <UCard>
-                    {{ movie.title }}
-                    <img
-                        :src="movie.poster_image_url"
-                    />
+        <div class="justify-center">
+            <h1 class="text-6xl font-bold justify-center p-6">{{ header }}</h1>
+        </div>
+        <div class="flex justify-center">
+            <UInput
+                type="text"
+                placeholder="Movie Title"
+                @change="handleInputChange"
+                class="w-1/2 justify-center p-4"
+            />
+            <UButton
+                @click="handleSearch"
+                class="justify-center m-4"
+            >
+                Search
+            </UButton>
+        </div>
+        <div class="flex flex-wrap justify-center w-3/4 p-4">
+            <span v-for="movie in this.movies"
+                class="justify-center flex p-4">
+                <UCard class="p-4">
+                    <div class="p-4 text-xl">
+                        {{ movie.title }}
+                    </div>
+                    <div>
+                        <img
+                            :src="movie.poster_image_url"
+                            class="max-h-72"
+                        />
+                    </div>
+                    <div class="p-4 text-xl">
+                        {{ movie.popularity_summary }}
+                    </div>
                 </UCard>
                 
             </span>

@@ -1,5 +1,5 @@
 <template>
   <div>
-    <Search header='Test' />
+    <Search header='Movies from IMDB' />
   </div>
 </template>
