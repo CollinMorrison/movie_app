@@ -1,8 +1,11 @@
 const express = require('express');
 const fetch = require('node-fetch');
-require('dotenv').config()
+require('dotenv').config();
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors())
 
 // Accepts a get request
 app.get('/movies', (req, res) => {

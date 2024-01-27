@@ -1,5 +1,5 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <Search title='Test' />
   </div>
 </template>
