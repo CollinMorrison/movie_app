@@ -1,5 +1,5 @@
 <template>
   <div>
-    <Search title='Test' />
+    <Search header='Test' />
   </div>
 </template>
