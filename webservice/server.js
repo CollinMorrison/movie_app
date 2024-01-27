@@ -47,4 +47,4 @@ app.get('/movies', (req, res) => {
     // res.send(`Successful response with search value: ${titleToSearch} ${response}`)
 });
 
-app.listen(3000, () => console.log('App is listening on port 3000.'));
+app.listen(3001, () => console.log('App is listening on port 3001.'));
