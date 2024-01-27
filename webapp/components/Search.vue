@@ -1,19 +1,30 @@
 <template>
-    <div>
-        <h1>{{ header }}</h1>
-        <input
+    <div class="bg-gradient-to-r from-slate-500 h-full">
+        <h1
+            class="text-3xl font-bold underline justify-center">{{ header }}</h1>
+        <UInput
             type="text"
             placeholder="Movie Title"
             @change="handleInputChange"
+            class="w-1/2 justify-center"
         />
-        <button
+        <UButton
             @click="handleSearch"
         >
             Search
-        </button>
-        <span v-for="movie in this.movies" :key="movie.title">
-            {{ movie.title }}
-        </span>
+        </UButton>
+        <div
+            class="flex-row justify-center w-3/4">
+            <span v-for="movie in this.movies">
+                <UCard>
+                    {{ movie.title }}
+                    <img
+                        :src="movie.poster_image_url"
+                    />
+                </UCard>
+                
+            </span>
+        </div>
 
     </div>
 </template>

@@ -27,7 +27,7 @@ app.get('/movies', (req, res) => {
             for (let i = 0; i < 10; ++i) {
                 if (json.results[i]) {
                     const currentObject = json.results[i]
-                    const posterImageUrl = `https://image.tmdb.org/t/original${currentObject.poster_path}`
+                    const posterImageUrl = `https://image.tmdb.org/t/p/original${currentObject.poster_path}`
                     const popularitySummary = `${currentObject.popularity} out of ${currentObject.vote_count}`
                     response.push({
                         'movie_id': currentObject.id,
