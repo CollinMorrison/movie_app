@@ -15,11 +15,31 @@ app.get('/movies', (req, res) => {
         accept: 'application/json',
         authorization: process.env.TMDB_API_KEY}};
 
-    let response
+    let response = []
     fetch(url, options)
         .then(res => res.json())
-        .then(json=> {console.log(json)
-                res.send(json)})
+        .then(json=> {
+            // console.log(json)
+            
+            for (let i = 0; i < 10; ++i) {
+                if (json.results[i]) {
+                    const currentObject = json.results[i]
+                    const posterImageUrl = `https://image.tmdb.org/t/original${currentObject.poster_path}`
+                    const popularitySummary = `${currentObject.popularity} out of ${currentObject.vote_count}`
+                    response.push({
+                        'movie_id': currentObject.id,
+                        'title': currentObject.title,
+                        'poster_image_url': posterImageUrl,
+                        'popularity_summary': popularitySummary
+                    })
+                }
+            }
+            // console.log(response.length)
+
+            res.send(response)
+                
+            
+            })
         .catch(err => console.error('error: ' + err));
 
         // const response = [];
